@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoPulse - SHSID Sustainability Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <h1>🌱 EcoPulse</h1>
+    <p>HackSHSID 2026 | Track 2: Sustainability</p>
+  </header>
+
+  <main class="container">
+    <!-- Input Panel -->
+    <section class="card input-section">
+      <h2>Daily Campus Footprint Input</h2>
+      <form id="calculator-form">
+        <div class="form-group">
+          <label for="electricity">Electricity Usage (kWh):</label>
+          <input type="number" id="electricity" value="120" min="0" required>
+        </div>
+        <div class="form-group">
+          <label for="waste">General Waste (kg):</label>
+          <input type="number" id="waste" value="25" min="0" required>
+        </div>
+        <div class="form-group">
+          <label for="meat-meals">High-Carbon Meals Served:</label>
+          <input type="number" id="meat-meals" value="150" min="0" required>
+        </div>
+        <button type="submit" class="btn">Calculate Impact</button>
+      </form>
+    </section>
+
+    <!-- Metrics Output Panel -->
+    <section class="card output-section">
+      <h2>Sustainability Metrics</h2>
+      <div class="metrics-grid">
+        <div class="metric-box">
+          <h3>Total Carbon Output</h3>
+          <p class="metric-value"><span id="total-co2">0</span> kg CO₂e</p>
+        </div>
+        <div class="metric-box">
+          <h3>Campus Eco-Score</h3>
+          <p class="metric-value"><span id="eco-score">0</span> / 100</p>
+        </div>
+      </div>
+      <div class="chart-container">
+        <canvas id="carbonChart"></canvas>
+      </div>
+    </section>
+
+    <!-- Scenario Simulator Panel -->
+    <section class="card simulator-section">
+      <h2>Interactive Target Simulator</h2>
+      <div class="form-group">
+        <label for="solar-slider">Solar Energy Adoption: <span id="solar-val">20</span>%</label>
+        <input type="range" id="solar-slider" min="0" max="100" value="20">
+      </div>
+      <p class="projection-text">
+        Projected Annual Savings: <strong><span id="annual-savings">0</span> kg CO₂e</strong>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Developed for HackSHSID 2026 — Track 2: Sustainability</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
